@@ -1,0 +1,27 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: cpu-dashboard
+  namespace: monitoring
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana
+
+  json: |
+    {
+      "title": "CPU Usage Dashboard",
+      "schemaVersion": 38,
+      "version": 1,
+      "panels": [
+        {
+          "type": "timeseries",
+          "title": "CPU Usage",
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total[1m]))"
+            }
+          ]
+        }
+      ]
+    }
