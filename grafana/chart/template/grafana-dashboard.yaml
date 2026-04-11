@@ -9,33 +9,4 @@ spec:
       dashboards: grafana
 
   json: |
-    {
-      "title": "CPU Usage Dashboard",
-      "uid": "cpu-dashboard",
-      "schemaVersion": 42,
-      "version": 1,
-      "timezone": "browser",
-      "time": {
-        "from": "now-6h",
-        "to": "now"
-      },
-      "panels": [
-        {
-          "id": 1,
-          "type": "timeseries",
-          "title": "CPU Usage",
-          "gridPos": {
-            "x": 0,
-            "y": 0,
-            "w": 24,
-            "h": 8
-          },
-          "targets": [
-            {
-              "refId": "A",
-              "expr": "sum(rate(container_cpu_usage_seconds_total[1m]))"
-            }
-          ]
-        }
-      ]
-    }
+    {{ .Files.Get "dashboards/cpu-dashboard.json" }}
