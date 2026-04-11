@@ -15,7 +15,7 @@ data:
       batch: {}
 
     exporters:
-      logging:
+      debug:
         verbosity: detailed
 
     service:
