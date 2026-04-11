@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: myapp:1.0
+          image: omkarsingad/myapp:1.0
           env:
             - name: OTEL_SERVICE_NAME
               value: "sdk-demo-app"
