@@ -4,7 +4,7 @@ metadata:
   name: otel-gateway
   namespace: observability
   labels:
-    release: observability   # REQUIRED MATCH
+    release: kube-prometheus-stack   # REQUIRED MATCH
 spec:
   selector:
     matchLabels:
