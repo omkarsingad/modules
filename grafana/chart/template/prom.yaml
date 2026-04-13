@@ -8,9 +8,7 @@ spec:
 
   serviceAccountName: prometheus-k8s
 
-  serviceMonitorSelector:
-    matchLabels:
-      release: kube-prometheus-stack
+  serviceMonitorSelector: {}
 
   podMonitorSelector: {}
 
