@@ -26,6 +26,9 @@ spec:
             - name: OTEL_EXPORTER_OTLP_PROTOCOL
               value: "grpc"
 
+            - name: OTEL_LOGS_EXPORTER
+              value: "otlp"              
+
             - name: OTEL_TRACES_EXPORTER
               value: "otlp"
 
