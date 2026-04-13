@@ -12,25 +12,8 @@ data:
           grpc:
           http:
 
-      kubeletstats:
-        collection_interval: 30s
-        auth_type: serviceAccount
-        endpoint: https://${K8S_NODE_NAME}:10250
-        insecure_skip_verify: true
-
-      hostmetrics:
-        collection_interval: 30s
-        scrapers:
-          cpu: {}
-          memory: {}
-          disk: {}
-          network: {}
-          filesystem: {}
-
     processors:
       batch: {}
-      k8sattributes:
-        auth_type: serviceAccount
 
     exporters:
       otlp:
@@ -40,18 +23,8 @@ data:
 
     service:
       pipelines:
-
-        traces:
-          receivers: [otlp]
-          processors: [batch, k8sattributes]
-          exporters: [otlp]
-
+      
         metrics:
-          receivers: [otlp, kubeletstats, hostmetrics]
-          processors: [batch, k8sattributes]
-          exporters: [otlp]
-
-        logs:
           receivers: [otlp]
-          processors: [batch, k8sattributes]
+          processors: [batch]
           exporters: [otlp]
