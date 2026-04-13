@@ -22,12 +22,6 @@ spec:
             - containerPort: 4317 # OTLP gRPC
             - containerPort: 4318 # OTLP HTTP
 
-          env:
-            - name: K8S_NODE_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: spec.nodeName
-
           volumeMounts:
             - name: config
               mountPath: /conf
