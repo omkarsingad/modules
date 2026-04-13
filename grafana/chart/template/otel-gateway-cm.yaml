@@ -23,16 +23,6 @@ data:
       prometheusremotewrite:
         endpoint: http://prometheus.monitoring.svc.cluster.local:9090/api/v1/write
 
-      # 📈 Traces → Tempo
-      otlp:
-        endpoint: tempo.observability.svc.cluster.local:4317
-        tls:
-          insecure: true
-
-      # 🪵 Logs → Loki
-      loki:
-        endpoint: http://loki.observability.svc.cluster.local:3100/loki/api/v1/push
-
       # Debug (optional)
       debug:
         verbosity: detailed
@@ -45,12 +35,3 @@ data:
           processors: [batch, memory_limiter]
           exporters: [prometheusremotewrite, debug]
 
-        traces:
-          receivers: [otlp]
-          processors: [batch]
-          exporters: [otlp, debug]
-
-        logs:
-          receivers: [otlp]
-          processors: [batch]
-          exporters: [loki, debug]
