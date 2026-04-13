@@ -18,10 +18,8 @@ data:
         limit_mib: 400
 
     exporters:
-
-      # 📊 Metrics → Prometheus backend (remote write)
-      prometheusremotewrite:
-        endpoint: http://prometheus.monitoring.svc.cluster.local:9090/api/v1/write
+      prometheus:
+        endpoint: "0.0.0.0:8889"
 
       # Debug (optional)
       debug:
