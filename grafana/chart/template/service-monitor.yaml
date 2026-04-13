@@ -1,14 +1,14 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: otel-collector
+  name: otel-gateway
   namespace: observability
   labels:
-    release: kube-prometheus-stack   # MUST match Prometheus selector
+    release: kube-prometheus-stack   # REQUIRED MATCH
 spec:
   selector:
     matchLabels:
-      app: otel-collector
+      app: otel-gateway
   namespaceSelector:
     matchNames:
       - observability
