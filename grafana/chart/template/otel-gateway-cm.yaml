@@ -31,5 +31,5 @@ data:
         metrics:
           receivers: [otlp]
           processors: [batch, memory_limiter]
-          exporters: [prometheusremotewrite, debug]
+          exporters: [prometheus, debug]
 
