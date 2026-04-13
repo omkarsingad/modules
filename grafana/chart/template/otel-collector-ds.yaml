@@ -24,7 +24,8 @@ spec:
 
           volumeMounts:
             - name: config
-              mountPath: /conf
+              mountPath: /conf/otel-collector-config.yaml
+              subPath: otel-collector-config.yaml
 
       volumes:
         - name: config
