@@ -4,7 +4,6 @@ metadata:
   name: otel-collector
   namespace: observability
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: otel-collector
@@ -15,13 +14,19 @@ spec:
     spec:
       containers:
         - name: otel-collector
-          image: otel/opentelemetry-collector:latest
+          image: otel/opentelemetry-collector-contrib:latest
           args:
             - "--config=/conf/otel-collector-config.yaml"
 
           ports:
             - containerPort: 4317 # OTLP gRPC
             - containerPort: 4318 # OTLP HTTP
+
+          env:
+            - name: K8S_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
 
           volumeMounts:
             - name: config
