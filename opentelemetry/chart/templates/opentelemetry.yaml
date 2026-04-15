@@ -32,7 +32,7 @@ spec:
         metrics:
           receivers: [otlp]
           processors: [batch]
-          exporters: [debug]
+          exporters: [debug, otlphttp/mimir]
         logs:
           receivers: [otlp]
           processors: [batch]
