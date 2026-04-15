@@ -4,9 +4,9 @@ metadata:
   name: otel-collector
   namespace: observability
 spec:
-  mode: deployment  
+  mode: deployment
   replicas: 1
-  config: |         
+  config: |
     receivers:
       otlp:
         protocols:
