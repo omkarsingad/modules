@@ -19,6 +19,10 @@ spec:
     exporters:
       debug:
         verbosity: detailed
+      otlphttp/mimir:
+        endpoint: http://mimir-distributor.monitoring.svc.cluster.local:8080/otlp
+        tls:
+          insecure: true
     service:
       pipelines:
         traces:
