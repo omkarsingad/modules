@@ -18,7 +18,7 @@ spec:
       batch: {}
     exporters:
       debug:
-        loglevel: debug
+        verbosity: detailed
     service:
       pipelines:
         traces:
